@@ -5,4 +5,4 @@
   git:
     accept_hostkey: yes
     dest: /opt/apm
-    repo: git@github.com:aossama/apm.git
+    repo: https://github.com/aossama/apm.git
