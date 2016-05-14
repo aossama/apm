@@ -1,6 +1,20 @@
 ---
 # Install and configure mysql server
 
+- name: preseed mariadb installation with password
+  debconf:
+    name: mariadb-server-5.5
+    question: mysql-server/root_password
+    value: root123
+    vtype: password
+
+- name: preseed mariadb installation with password again
+  debconf:
+    name: mariadb-server-5.5
+    question: mysql-server/root_password_again
+    value: root123
+    vtype: password
+
 - name: install mysql
   apt:
     name: mariadb-server-5.5
