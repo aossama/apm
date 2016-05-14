@@ -1,0 +1,7 @@
+---
+# Install and configure an apache webserver
+
+- name: Install apache
+  apt:
+    name: apache2
+    state: present

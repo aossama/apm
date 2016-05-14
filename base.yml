@@ -1,0 +1,8 @@
+---
+- hosts: apm
+  sudo: yes
+  roles:
+  - common
+  - apache
+  - php
+  - mysql

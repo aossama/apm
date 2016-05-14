@@ -1,0 +1,8 @@
+---
+# Common tasks performed for an Apache-PHP-MySQL environment
+
+- name: Checkout repo in /opt/apm
+  git:
+    accept_hostkey: yes
+    dest: /opt/apm
+    repo: git@github.com:aossama/apm.git
