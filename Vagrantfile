@@ -37,6 +37,7 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
+     vb.name = "apm-server"
      vb.memory = "1024"
   end
 
