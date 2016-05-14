@@ -16,6 +16,4 @@
     vtype: password
 
 - name: install mysql
-  apt:
-    name: mariadb-server-5.5
-    state: present
+  apt: name=mariadb-server-5.5 state=present

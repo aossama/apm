@@ -2,8 +2,6 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "trusty64"
   config.vm.hostname = "apm-server"
 
@@ -30,6 +28,6 @@ Vagrant.configure(2) do |config|
      sudo apt-get install -y git ansible
      sudo git clone https://github.com/aossama/apm.git /opt/apm
      sudo -s su - vagrant -c 'ssh-keygen -f ~/.ssh/id_rsa -N "" && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
-     ansible-playbook -i /opt/apm/inventory/hosts /opt/apm/base.yml
+     ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /opt/apm/inventory/hosts /opt/apm/base.yml
   SHELL
 end
