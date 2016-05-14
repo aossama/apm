@@ -12,13 +12,8 @@ Vagrant.configure(2) do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.100"
 
   # Create a public network, which generally matched to bridged network.
@@ -48,7 +43,7 @@ Vagrant.configure(2) do |config|
      sudo apt-get update
      sudo apt-get install -y git ansible
      sudo git clone https://github.com/aossama/apm.git /opt/apm
-     sudo -u vagrant ssh-keygen -f ~/.ssh/id_rsa -N '' && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+     sudo -s su - vagrant -c 'ssh-keygen -f ~/.ssh/id_rsa -N "" && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys'
      ansible-playbook -i /opt/apm/inventory/hosts /opt/apm/base.yml
   SHELL
 end
