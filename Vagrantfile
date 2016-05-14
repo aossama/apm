@@ -47,6 +47,7 @@ Vagrant.configure(2) do |config|
      sudo apt-get update
      sudo apt-get install -y git ansible
      sudo git clone https://github.com/aossama/apm.git /opt/apm
-     #sudo ansible-playbook /opt/apm/base.yml
+     sudo -u vagrant ssh-keygen -f ~/.ssh/id_rsa -N '' && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+     ansible-playbook -i /opt/apm/inventory/hosts /opt/apm/base.yml
   SHELL
 end
